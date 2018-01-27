@@ -140,6 +140,7 @@ public class CharacterController2D : MonoBehaviour {
                 if (!collision.GetComponent<Ball>().secondValidation)
                 {
                     collision.GetComponent<Ball>().secondValidation = true;
+                    DestroyObject(collision.gameObject);
                     stacks++;
                 }
             }
