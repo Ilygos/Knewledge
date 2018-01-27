@@ -52,8 +52,8 @@ public class CharacterController2D : MonoBehaviour {
             CharacterController2D lCharaCtrl2D = other.GetComponentInParent<CharacterController2D>();
             if ((lCharaCtrl2D.isDashing && isDashing) && (lCharaCtrl2D.team != team))
             {
-                _rgbg2D.AddForce(-_rgbg2D.velocity);
-                other.GetComponentInParent<Rigidbody2D>().AddForce(-other.GetComponentInParent<Rigidbody2D>().velocity);
+                _rgbg2D.velocity *= -1;
+                other.GetComponentInParent<Rigidbody2D>().velocity *= -1;
             }
             else if ((lCharaCtrl2D.isDashing && !isDashing) && (lCharaCtrl2D.team != team))
             {
