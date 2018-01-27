@@ -25,25 +25,31 @@ public class CharacterController2D : MonoBehaviour {
     [SerializeField]
     float dashValue = 50;
 
+
+    float currentSpeed;
+    float currentDashImpulse;
     Rigidbody2D _rgbg2D;
+    private bool shielded;
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         _rgbg2D = GetComponent<Rigidbody2D>();
         stacks = new List<GameObject>();
+        currentSpeed = speed;
+        currentDashImpulse = dashValue;
     }
 	
 	// Update is called once per frame
 	void Update () {
         float inputHorizontal = Input.GetAxis("Horizontal" + playerId);
         float inputVertical = Input.GetAxis("Vertical" + playerId);
-        Vector2 lVelocityDelta = new Vector2(speed * inputHorizontal, speed * inputVertical);
+        Vector2 lVelocityDelta = new Vector2(currentSpeed * inputHorizontal, currentSpeed * inputVertical);
         transform.rotation = inputHorizontal != 0 || inputVertical != 0 ? Quaternion.Euler(0, 0,Mathf.Rad2Deg*Mathf.Atan2(inputVertical, inputHorizontal)) : transform.rotation;
         if (Input.GetButtonDown("Attack" + playerId))
         {
-            lVelocityDelta.x += dashValue * Input.GetAxisRaw("Horizontal" + playerId);
-            lVelocityDelta.y += dashValue * Input.GetAxisRaw("Vertical" + playerId);
+            lVelocityDelta.x += currentDashImpulse * Input.GetAxisRaw("Horizontal" + playerId);
+            lVelocityDelta.y += currentDashImpulse * Input.GetAxisRaw("Vertical" + playerId);
             isDashing = true;
             damageZone.SetActive(true);
         }
@@ -60,11 +66,30 @@ public class CharacterController2D : MonoBehaviour {
             if ((lCharaCtrl2D.isDashing && isDashing) && (lCharaCtrl2D.team != team))
             {
                 _rgbg2D.velocity *= -1;
-                other.GetComponentInParent<Rigidbody2D>().velocity *= -1;
+                other.GetComponentInParent<Rigidbody2D>().velocity = _rgbg2D.velocity;
             }
             else if ((lCharaCtrl2D.isDashing && !isDashing) && (lCharaCtrl2D.team != team))
             {
                 killed();
+            }
+
+        }
+
+        if (other.tag == "Bonus")
+        {
+            if (other.tag == "Speed")
+            {
+                currentSpeed *= 2;
+            }
+
+            if (other.tag == "Shield")
+            {
+                shielded = true;
+            }
+
+            if (other.tag == "Dash")
+            {
+                currentDashImpulse *= 2;
             }
         }
     }
@@ -106,6 +131,11 @@ public class CharacterController2D : MonoBehaviour {
 
     private void killed()
     {
+        if(shielded)
+        {
+            shielded = false;
+            return;
+        }
         isDead = true;
         if (stacks.Count > 0)
         {

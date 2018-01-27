@@ -12,6 +12,12 @@ public class UIManager : MonoBehaviour {
     private int scoreBlueTeamInt;
     private int scoreRedTeamInt;
 
+    public int randomIndex;
+    public int waitingTime;
+    public int COUNTER_FRAME = 60;
+
+    public GameObject collectiblePrefabs;
+
     public void setScore(string team, int pointToAdd)
     {
         if (team == "blue")
@@ -32,5 +38,33 @@ public class UIManager : MonoBehaviour {
 	void Update () {
         scoreBlueTeam.text = scoreBlueTeamInt.ToString();
         scoreRedTeam.text = scoreRedTeamInt.ToString();
+        spawnCollectible();
+
+    }
+
+    void spawnCollectible()
+    {
+        GameObject lCollectibleType;
+
+        if (waitingTime++ <= COUNTER_FRAME)
+            return;
+
+        waitingTime = 0;
+
+        randomIndex = Random.Range(1, 3);
+        Vector3 pos = new Vector3(Random.Range(Screen.width/6, Screen.width - Screen.width / 6), Random.Range(Screen.height / 6, Screen.height - Screen.height / 6));
+        lCollectibleType = Instantiate(collectiblePrefabs, pos, Quaternion.identity);
+        if (randomIndex == 1)
+        {
+            lCollectibleType.GetComponent<Collectible>().changeType("shield");
+        }
+        else if (randomIndex == 2)
+        {
+            lCollectibleType.GetComponent<Collectible>().changeType("Speed");
+        }
+        else if (randomIndex == 3)
+        {
+            lCollectibleType.GetComponent<Collectible>().changeType("Dash");
+        }
     }
 }

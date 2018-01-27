@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+    public string type;
+
+    // Use this for initialization
+    void Start () {
+        
 	}
 	
+    public void changeType(string newType)
+    {
+        type = newType;
+    }
+
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Upddate () {
+
+    }
+
 }
