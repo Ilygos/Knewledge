@@ -71,13 +71,23 @@ public class CharacterController2D : MonoBehaviour {
             Debug.Log(collision.GetComponent<Ball>().type);
             if (type != collision.GetComponent<Ball>().type)
             {
-                if (ballReference == null) grabBall(collision.gameObject);
+                if (ballReference == null)
+                {
+                    grabBall(collision.gameObject);
+                    collision.GetComponent<Ball>().firstValidation = true;
+                }
             }
         }
-        else if(collision.tag == "Collectible" && collision.GetComponent<Ball>().firstValidation && !collision.GetComponent<Ball>().taken && Input.GetButtonDown("Interaction" + playerId))
+        else if(collision.tag == "Collectible" && collision.GetComponent<Ball>().firstValidation && collision.GetComponent<Ball>().team == team && !collision.GetComponent<Ball>().taken && Input.GetButtonDown("Interaction" + playerId))
         {
             if (type == collision.GetComponent<Ball>().type)
             {
+                CharacterController2D[] lCharactersArray = FindObjectsOfType<CharacterController2D>();
+                foreach (CharacterController2D character in lCharactersArray)
+                {
+                    if (character.ballReference != null && character.team == team)
+                        transfertBall();
+                }
                 grabBall(collision.gameObject);
             }
         }
@@ -95,16 +105,24 @@ public class CharacterController2D : MonoBehaviour {
         Debug.Log("Killed");
     }
 
+    public void transfertBall()
+    {
+        ballReference = null; 
+    }
+
     private void grabBall(GameObject ball)
     {
         ballReference = ball;
         ball.GetComponent<Ball>().taken = true;
+        ball.GetComponent<Ball>().team = team;
         ballReference.transform.position = ballPosition.position;
     }
 
     private void drop(GameObject ball)
     {
         ball.GetComponent<Ball>().taken = false;
+        ball.GetComponent<Ball>().firstValidation = false;
+        ball.GetComponent<Ball>().secondValidation = false;
         ballReference = null;
     }
 
