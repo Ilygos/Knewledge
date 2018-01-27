@@ -18,6 +18,7 @@ public class Goal : MonoBehaviour {
                 foreach(GameObject stack in collision.GetComponent<CharacterController2D>().stacks)
                 {
                     collision.GetComponent<CharacterController2D>().stacks.Remove(stack);
+
                 }
 
             }
