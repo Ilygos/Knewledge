@@ -6,13 +6,17 @@ public class CharacterController2D : MonoBehaviour {
     public int playerId;
     public int type;
     public Transform ballPosition;
+    public Transform[] stacksPosition;
     public int team = 0;
     public bool isDashing;
     public bool isDead;
     public GameObject damageZone;
 
+    public List<GameObject> stacks;
+
     [SerializeField]
     private GameObject ballReference;
+
 
     [SerializeField]
     float speed = 5;
@@ -26,8 +30,9 @@ public class CharacterController2D : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        _rgbg2D = GetComponent<Rigidbody2D>();	
-	}
+        _rgbg2D = GetComponent<Rigidbody2D>();
+        stacks = new List<GameObject>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -102,6 +107,10 @@ public class CharacterController2D : MonoBehaviour {
     private void killed()
     {
         isDead = true;
+        if (stacks.Count > 0)
+        {
+            stacks.RemoveAt(0);
+        }
         Debug.Log("Killed");
     }
 

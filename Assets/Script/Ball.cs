@@ -4,6 +4,8 @@ using UnityEngine;
 
 
 public class Ball : MonoBehaviour {
+    public static List<Ball> list = new List<Ball>();
+
     public int type;
     public int team = 0;
 

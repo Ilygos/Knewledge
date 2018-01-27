@@ -19,11 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4873174481118464}
-  - component: {fileID: 114238562779392180}
   - component: {fileID: 212457486148306776}
   - component: {fileID: 114785352709076468}
   - component: {fileID: 61917011193465850}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Collectible
   m_Icon: {fileID: 0}
@@ -68,20 +67,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5461818, y: 1.5461819}
   m_EdgeRadius: 0
---- !u!114 &114238562779392180
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1039414588808596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f445eb7366cf8aa4dbc91a8d72b3460b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 
-  firstValidation: 0
-  secondValidation: 0
 --- !u!114 &114785352709076468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,9 +78,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f445eb7366cf8aa4dbc91a8d72b3460b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: Square
+  type: 0
+  team: 0
   firstValidation: 0
   secondValidation: 0
+  taken: 0
 --- !u!212 &212457486148306776
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -129,7 +116,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: d5dceb9a30c54ae46b666f40d5231abf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
