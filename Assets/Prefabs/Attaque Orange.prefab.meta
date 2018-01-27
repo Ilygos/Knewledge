@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream:Assets/Prefabs/Attaque Bleue.prefab.meta~Updated upstream
 guid: cae39adaf69ce164d9e8f20db86b83ec
 timeCreated: 1517078303
@@ -6,6 +7,10 @@ timeCreated: 1517078303
 guid: 0d724f8a69c40f34e8e8fe7e3db75781
 timeCreated: 1517078309
 >>>>>>> Stashed changes:Assets/Prefabs/Attaque Orange.prefab.meta
+=======
+guid: cf70562117f73864a818ac3e6c018c9f
+timeCreated: 1517086500
+>>>>>>> Stashed changes
 licenseType: Free
 NativeFormatImporter:
   externalObjects: {}
