@@ -83,7 +83,7 @@ public class CharacterController2D : MonoBehaviour {
                 }
             }
         }
-        else if(collision.tag == "Collectible" && collision.GetComponent<Ball>().firstValidation && collision.GetComponent<Ball>().team == team && !collision.GetComponent<Ball>().taken && Input.GetButtonDown("Interaction" + playerId))
+        else if(collision.tag == "Collectible" && collision.GetComponent<Ball>().firstValidation && collision.GetComponent<Ball>().team == team && Input.GetButtonDown("Interaction" + playerId))
         {
             if (type == collision.GetComponent<Ball>().type)
             {

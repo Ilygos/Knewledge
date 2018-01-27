@@ -513,6 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreRedTeam: {fileID: 1258662727}
   scoreBlueTeam: {fileID: 704989817}
+  winScreen: {fileID: 0}
 --- !u!1 &1258662725
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,6 +692,10 @@ Prefab:
         type: 2}
       propertyPath: playerId
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713296690997474, guid: 9865b9b037a43c64e9977743fc7dd975, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9865b9b037a43c64e9977743fc7dd975, type: 2}

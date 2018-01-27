@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour {
 
     public Text scoreRedTeam;
     public Text scoreBlueTeam;
+    public GameObject winScreen;
 
     private int scoreBlueTeamInt;
     private int scoreRedTeamInt;
