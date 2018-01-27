@@ -31,8 +31,10 @@ public class CharacterController2D : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector2 lVelocityDelta = new Vector2(speed * Input.GetAxis("Horizontal" + playerId), speed * Input.GetAxis("Vertical" + playerId));
-        transform.rotation = Quaternion.Euler(0, 0,Mathf.Rad2Deg*Mathf.Atan2(Input.GetAxis("Horizontal" + playerId), Input.GetAxis("Vertical" + playerId)));
+        float inputHorizontal = Input.GetAxis("Horizontal" + playerId);
+        float inputVertical = Input.GetAxis("Vertical" + playerId);
+        Vector2 lVelocityDelta = new Vector2(speed * inputHorizontal, speed * inputVertical);
+        transform.rotation = inputHorizontal != 0 || inputVertical != 0 ? Quaternion.Euler(0, 0,Mathf.Rad2Deg*Mathf.Atan2(inputVertical, inputHorizontal)) : transform.rotation;
         if (Input.GetButtonDown("Attack" + playerId))
         {
             lVelocityDelta.x += dashValue * Input.GetAxisRaw("Horizontal" + playerId);
