@@ -7,22 +7,24 @@ public class CharacterController2D : MonoBehaviour {
     public int type;
     public Transform ballPosition;
     public int team = 0;
+    public float dashDelay = 0.5f;
     public bool isDashing;
     public bool isDead;
     public GameObject damageZone;
 
     public Transform spawn;
 
+    public Transform[] spawnPositions;
+
     public Sprite normalSprite;
     public Sprite stack1Sprite;
     public Sprite stack2Sprite;
     public Sprite stack3Sprite;
-    private SpriteRenderer _sprtiRenderer;
 
     public int stacks;
 
     [SerializeField]
-    private GameObject ballReference;
+    GameObject ballReference;
 
 
     [SerializeField]
@@ -32,11 +34,12 @@ public class CharacterController2D : MonoBehaviour {
     [SerializeField]
     float dashValue = 50;
 
-
+    float timeBefore;
     float currentSpeed;
     float currentDashImpulse;
     Rigidbody2D _rgbg2D;
-    private bool shielded;
+    bool shielded;
+    SpriteRenderer _sprtiRenderer;
 
 
     // Use this for initialization
