@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour {
 
+    public int team;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -11,16 +13,13 @@ public class Goal : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && team == collision.GetComponent<CharacterController2D>().team)
         {
-            if (collision.GetComponent<CharacterController2D>().stacks.Count == 3)
+            Debug.Log("Melchior is SuperGay");
+            if (collision.GetComponent<CharacterController2D>().stacks == 3)
             {
-                foreach(GameObject stack in collision.GetComponent<CharacterController2D>().stacks)
-                {
-                    collision.GetComponent<CharacterController2D>().stacks.Remove(stack);
-
-                }
-
+                collision.GetComponent<CharacterController2D>().resetList();
+                FindObjectOfType<UIManager>().setScore(team, 1);
             }
         }
     }

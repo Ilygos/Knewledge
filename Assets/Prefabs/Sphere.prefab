@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4854689594112322}
   - component: {fileID: 212957600903954752}
   - component: {fileID: 114890020564729688}
-  - component: {fileID: 61681898974650992}
+  - component: {fileID: 61496105307856090}
   m_Layer: 8
   m_Name: Sphere
   m_TagString: Collectible
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61681898974650992
+--- !u!61 &61496105307856090
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -58,14 +58,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 3.13, y: 3.13}
     newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5}
+  m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
 --- !u!114 &114890020564729688
 MonoBehaviour:
@@ -117,7 +117,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 02a775ab0d683044ca9c117bffbf2ab2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 989752f6715bf374e8390b7cd019ca5d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

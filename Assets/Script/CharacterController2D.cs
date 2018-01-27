@@ -6,13 +6,20 @@ public class CharacterController2D : MonoBehaviour {
     public int playerId;
     public int type;
     public Transform ballPosition;
-    public Transform[] stacksPosition;
     public int team = 0;
     public bool isDashing;
     public bool isDead;
     public GameObject damageZone;
 
-    public List<GameObject> stacks;
+    public Transform spawn;
+
+    public Sprite normalSprite;
+    public Sprite stack1Sprite;
+    public Sprite stack2Sprite;
+    public Sprite stack3Sprite;
+    private SpriteRenderer _sprtiRenderer;
+
+    public int stacks;
 
     [SerializeField]
     private GameObject ballReference;
@@ -35,9 +42,11 @@ public class CharacterController2D : MonoBehaviour {
     // Use this for initialization
     void Start () {
         _rgbg2D = GetComponent<Rigidbody2D>();
-        stacks = new List<GameObject>();
+        stacks = 0;
         currentSpeed = speed;
         currentDashImpulse = dashValue;
+        _sprtiRenderer = GetComponent<SpriteRenderer>();
+        spawn = transform;
     }
 	
 	// Update is called once per frame
@@ -56,6 +65,15 @@ public class CharacterController2D : MonoBehaviour {
         _rgbg2D.velocity += lVelocityDelta;
         _rgbg2D.velocity *= friction;
         if (ballReference != null) ballReference.transform.position = ballPosition.position;
+        if (stacks == 1)
+            _sprtiRenderer.sprite = stack1Sprite;
+        else if (stacks == 2)
+            _sprtiRenderer.sprite = stack2Sprite;
+        else if (stacks == 3)
+            _sprtiRenderer.sprite = stack3Sprite;
+        else
+            _sprtiRenderer.sprite = normalSprite;
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -98,7 +116,7 @@ public class CharacterController2D : MonoBehaviour {
     {
         if (collision.tag == "Collectible" && !collision.GetComponent<Ball>().firstValidation && !collision.GetComponent<Ball>().taken && Input.GetButtonDown("Interaction"+playerId))
         {
-            Debug.Log(collision.GetComponent<Ball>().type);
+            Debug.Log(name + collision.GetComponent<Ball>().type);
             if (type != collision.GetComponent<Ball>().type)
             {
                 if (ballReference == null)
@@ -115,13 +133,23 @@ public class CharacterController2D : MonoBehaviour {
                 CharacterController2D[] lCharactersArray = FindObjectsOfType<CharacterController2D>();
                 foreach (CharacterController2D character in lCharactersArray)
                 {
-                    if (character.ballReference != null && character.team == team)
-                        transfertBall();
+                    if (character.ballReference == collision.gameObject/* && character.team == team*/)
+                        character.transfertBall();
                 }
-                grabBall(collision.gameObject);
+
+                if (!collision.GetComponent<Ball>().secondValidation)
+                {
+                    collision.GetComponent<Ball>().secondValidation = true;
+                    stacks++;
+                }
             }
         }
        
+    }
+
+    public void resetList()
+    {
+        stacks = 0;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -137,11 +165,7 @@ public class CharacterController2D : MonoBehaviour {
             return;
         }
         isDead = true;
-        if (stacks.Count > 0)
-        {
-            stacks.RemoveAt(0);
-        }
-        Debug.Log("Killed");
+        stacks--;
     }
 
     public void transfertBall()

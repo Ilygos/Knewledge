@@ -18,11 +18,11 @@ public class UIManager : MonoBehaviour {
 
     public GameObject collectiblePrefabs;
 
-    public void setScore(string team, int pointToAdd)
+    public void setScore(int team, int pointToAdd)
     {
-        if (team == "blue")
+        if (team == 2)
             scoreBlueTeamInt += pointToAdd;
-        else if (team == "red")
+        else if (team == 1)
             scoreRedTeamInt += pointToAdd;
 
 
