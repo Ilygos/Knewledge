@@ -13,6 +13,18 @@ public class CharacterController2D : MonoBehaviour {
 
     public Transform spawn;
 
+	public GameObject Explosion_Bleu;
+	public GameObject Explosion_Orange;
+	public GameObject Pickup_Collectible;
+	public GameObject Pickup_Bonus;
+	public GameObject Respawn_Bleu;
+	public GameObject Respawn_Orange;
+	public GameObject Transmission_Bleu;
+	public GameObject Transmission_Orange;
+	public GameObject Player_Collision;
+	public GameObject Bonus_Bouclier_Bleu;
+	public GameObject Bonus_Bouclier_Orange;
+
     public Sprite normalSprite;
     public Sprite stack1Sprite;
     public Sprite stack2Sprite;
