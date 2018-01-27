@@ -8,9 +8,19 @@ public class Goal : MonoBehaviour {
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            if (collision.GetComponent<CharacterController2D>().stacks.Count == 3)
+            {
+                foreach(GameObject stack in collision.GetComponent<CharacterController2D>().stacks)
+                {
+                    collision.GetComponent<CharacterController2D>().stacks.Remove(stack);
+                }
+
+            }
+        }
+    }
 }
