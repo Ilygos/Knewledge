@@ -181,6 +181,60 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 96235901}
+--- !u!1001 &231457335
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4941805384491782, guid: 9d7b716380864a643b35c1253ed7ff90, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941805384491782, guid: 9d7b716380864a643b35c1253ed7ff90, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941805384491782, guid: 9d7b716380864a643b35c1253ed7ff90, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941805384491782, guid: 9d7b716380864a643b35c1253ed7ff90, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941805384491782, guid: 9d7b716380864a643b35c1253ed7ff90, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941805384491782, guid: 9d7b716380864a643b35c1253ed7ff90, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941805384491782, guid: 9d7b716380864a643b35c1253ed7ff90, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941805384491782, guid: 9d7b716380864a643b35c1253ed7ff90, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941805384491782, guid: 9d7b716380864a643b35c1253ed7ff90, type: 2}
+      propertyPath: m_LocalScale.x
+      value: -0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941805384491782, guid: 9d7b716380864a643b35c1253ed7ff90, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941805384491782, guid: 9d7b716380864a643b35c1253ed7ff90, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.33013055
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9d7b716380864a643b35c1253ed7ff90, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &468434432
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,8 +498,8 @@ MonoBehaviour:
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
+  m_HorizontalAxis: Horizontal0
+  m_VerticalAxis: Vertical0
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
