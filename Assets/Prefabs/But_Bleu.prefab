@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4893289536297442}
   - component: {fileID: 212168965124419588}
   - component: {fileID: 95626245696611912}
+  - component: {fileID: 114794562485214500}
   m_Layer: 0
   m_Name: But_Bleu
   m_TagString: Untagged
@@ -89,6 +90,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114794562485214500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1924187557952476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf8e546cbf372b49818345803ea26eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 2
 --- !u!198 &198903713922451464
 ParticleSystem:
   m_ObjectHideFlags: 1

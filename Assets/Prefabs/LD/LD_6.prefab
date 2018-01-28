@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 4537934196493654}
   - component: {fileID: 212365437819469576}
   - component: {fileID: 95366858117947612}
+  - component: {fileID: 114673936517763122}
   m_Layer: 0
   m_Name: But_Quart_Blue
   m_TagString: Untagged
@@ -157,6 +158,7 @@ GameObject:
   - component: {fileID: 4400814292596010}
   - component: {fileID: 212243932366912652}
   - component: {fileID: 95857683821465056}
+  - component: {fileID: 114750016519594362}
   m_Layer: 0
   m_Name: But_Quart_Orange
   m_TagString: Untagged
@@ -264,7 +266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4017015101347548
 Transform:
   m_ObjectHideFlags: 1
@@ -758,6 +760,30 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114673936517763122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1339301371207606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf8e546cbf372b49818345803ea26eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 2
+--- !u!114 &114750016519594362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1597745885705878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf8e546cbf372b49818345803ea26eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 1
 --- !u!198 &198008554031081994
 ParticleSystem:
   m_ObjectHideFlags: 1

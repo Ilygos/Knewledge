@@ -72,6 +72,8 @@ GameObject:
   - component: {fileID: 4675249665120070}
   - component: {fileID: 212050522736297558}
   - component: {fileID: 95444095621047872}
+  - component: {fileID: 114329593782360938}
+  - component: {fileID: 61933435173960244}
   m_Layer: 0
   m_Name: But_Bleu
   m_TagString: Untagged
@@ -156,6 +158,8 @@ GameObject:
   - component: {fileID: 4992587451408582}
   - component: {fileID: 212873198321979162}
   - component: {fileID: 95942065579747804}
+  - component: {fileID: 114053032144238464}
+  - component: {fileID: 61217533964272738}
   m_Layer: 0
   m_Name: But_Orange
   m_TagString: Untagged
@@ -406,6 +410,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
+--- !u!61 &61217533964272738
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1791832317904726}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 11.42, y: 5.72}
+    newSize: {x: 11.42, y: 5.72}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 11.42, y: 5.72}
+  m_EdgeRadius: 0
 --- !u!61 &61251236100067352
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -531,6 +560,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
+--- !u!61 &61933435173960244
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433815365260528}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 11.42, y: 5.72}
+    newSize: {x: 11.42, y: 5.72}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 11.42, y: 5.72}
+  m_EdgeRadius: 0
 --- !u!61 &61997127879879316
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -590,6 +644,30 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114053032144238464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1791832317904726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf8e546cbf372b49818345803ea26eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 1
+--- !u!114 &114329593782360938
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433815365260528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf8e546cbf372b49818345803ea26eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 2
 --- !u!198 &198362028517145204
 ParticleSystem:
   m_ObjectHideFlags: 1

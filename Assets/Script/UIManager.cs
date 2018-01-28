@@ -8,7 +8,8 @@ public class UIManager : MonoBehaviour {
     public Text scoreRedTeam;
     public Text scoreBlueTeam;
     public GameObject winScreen;
-
+    public GameObject[] balls;
+    public Transform[] spawnPoint;
     private int scoreBlueTeamInt;
     private int scoreRedTeamInt;
 
@@ -28,17 +29,25 @@ public class UIManager : MonoBehaviour {
 
     }
 
+    public void spawnBall()
+    {
+        int rng = Random.Range(0, spawnPoint.Length);
+        int randomIndex = Random.Range(0, 1);
+        GameObject lCollectibleType = Instantiate(balls[randomIndex], spawnPoint[rng].position, Quaternion.identity);
+    }
+
 	// Use this for initialization
 	void Start () {
         scoreBlueTeamInt = 0;
         scoreRedTeamInt = 0;
+        spawnBall();
     }
 	
 	// Update is called once per frame
 	void Update () {
         scoreBlueTeam.text = scoreBlueTeamInt.ToString();
         scoreRedTeam.text = scoreRedTeamInt.ToString();
-        spawnCollectible();
+        //spawnCollectible();
 
     }
 
@@ -52,8 +61,8 @@ public class UIManager : MonoBehaviour {
         waitingTime = 0;
 
         randomIndex = Random.Range(1, 3);
-        Vector3 pos = new Vector3(Random.Range(Screen.width/6, Screen.width - Screen.width / 6), Random.Range(Screen.height / 6, Screen.height - Screen.height / 6));
-        lCollectibleType = Instantiate(collectiblePrefabs, pos, Quaternion.identity);
+        int rng = Random.Range(0, spawnPoint.Length);
+        lCollectibleType = Instantiate(collectiblePrefabs, spawnPoint[rng].position, Quaternion.identity);
         if (randomIndex == 1)
         {
             lCollectibleType.GetComponent<Collectible>().changeType("shield");

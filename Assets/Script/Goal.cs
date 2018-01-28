@@ -20,6 +20,7 @@ public class Goal : MonoBehaviour {
             {
                 collision.GetComponent<CharacterController2D>().resetList();
                 FindObjectOfType<UIManager>().setScore(team, 1);
+                GetComponentInChildren<ParticleSystem>().Play();
             }
         }
     }
