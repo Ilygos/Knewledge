@@ -87,6 +87,8 @@ public class UIManager : MonoBehaviour {
     public void loadMainMenu()
     {
         SceneManager.LoadScene("TitleCard");
+
+
     }
 
     public void reload()
