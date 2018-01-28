@@ -29,7 +29,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1043903427134246
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +421,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.18, y: 4.17}
+    oldSize: {x: 8.87, y: 8.88}
     newSize: {x: 1, y: 0.99760765}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -834,9 +834,10 @@ MonoBehaviour:
   type: 1
   ballPosition: {fileID: 4793078259498382}
   team: 1
-  dashDelay: 1
+  dashDelay: 0.75
   isDashing: 0
   isDead: 0
+  canTake: 1
   isImortal: 0
   damageZone: {fileID: 1023223920105292}
   spawn: {fileID: 0}
@@ -928,7 +929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ad0dcd125b325458e413a9ce668293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeIntactivity: 0.33
+  timeBeforeIntactivity: 0.25
 --- !u!212 &212364761105991426
 SpriteRenderer:
   m_ObjectHideFlags: 1

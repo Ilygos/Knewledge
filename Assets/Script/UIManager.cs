@@ -71,7 +71,7 @@ public class UIManager : MonoBehaviour {
 	void Update () {
         scoreBlueTeam.text = scoreBlueTeamInt.ToString();
         scoreRedTeam.text = scoreRedTeamInt.ToString();
-        //spawnCollectible();
+        spawnCollectible();
         if (scoreBlueTeamInt >= 5 || scoreRedTeamInt >= 5)
             win();
     }
@@ -96,7 +96,7 @@ public class UIManager : MonoBehaviour {
         lCollectibleType = Instantiate(collectiblePrefabs, spawnPoint[rng].position, Quaternion.identity);
         if (randomIndex == 1)
         {
-            lCollectibleType.GetComponent<Collectible>().changeType("shield");
+            lCollectibleType.GetComponent<Collectible>().changeType("Shield");
         }
         else if (randomIndex == 2)
         {

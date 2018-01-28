@@ -37,6 +37,8 @@ public class CharacterController2D : MonoBehaviour {
     GameObject ballReference;
 
 
+    GameObject shield;
+
     [SerializeField]
     float speed = 5;
     [SerializeField]
@@ -50,7 +52,7 @@ public class CharacterController2D : MonoBehaviour {
 
     float timeBefore;
     float currentSpeed;
-    float currentDashImpulse;
+    float currentDelay;
     Rigidbody2D _rgbg2D;
     bool shielded;
     SpriteRenderer _sprtiRenderer;
@@ -61,7 +63,7 @@ public class CharacterController2D : MonoBehaviour {
         _rgbg2D = GetComponent<Rigidbody2D>();
         stacks = 0;
         currentSpeed = speed;
-        currentDashImpulse = dashValue;
+        currentDelay = dashDelay;
         _sprtiRenderer = GetComponent<SpriteRenderer>();
         spawn = transform;
         timeBefore = Time.fixedTime;
@@ -79,8 +81,8 @@ public class CharacterController2D : MonoBehaviour {
             if (Input.GetButtonDown("Attack" + playerId) && Time.fixedTime > timeBefore + dashDelay)
             {
                 timeBefore = Time.fixedTime;
-                lVelocityDelta.x += currentDashImpulse * Input.GetAxisRaw("Horizontal" + playerId);
-                lVelocityDelta.y += currentDashImpulse * Input.GetAxisRaw("Vertical" + playerId);
+                lVelocityDelta.x += dashValue * Input.GetAxisRaw("Horizontal" + playerId);
+                lVelocityDelta.y += dashValue * Input.GetAxisRaw("Vertical" + playerId);
                 isDashing = true;
                 damageZone.SetActive(true);
             }
@@ -104,13 +106,37 @@ public class CharacterController2D : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
+
+        if (other.tag == "Bonus")
+        {
+            pickup();
+            if (other.GetComponent<Collectible>().type == "Speed")
+            {
+                currentSpeed *= 2;
+            }
+
+            if (other.GetComponent<Collectible>().type == "Shield")
+            {
+                shielded = true;
+                shieldAnim();
+            }
+
+            if (other.GetComponent<Collectible>().type == "Dash")
+            {
+                currentDelay /= 2;
+            }
+            GameObject.DestroyObject(other.gameObject);
+        }
+
         if (other.tag == "DashZone")
         {
             CharacterController2D lCharaCtrl2D = other.GetComponentInParent<CharacterController2D>();
             if ((lCharaCtrl2D.isDashing && isDashing) && (lCharaCtrl2D.team != team))
             {
                 _rgbg2D.velocity = new Vector3(-250, 0);
-                other.GetComponentInParent<Rigidbody2D>().velocity =new Vector3(250,0);
+                collisionSparks();
+                other.GetComponentInParent<Rigidbody2D>().velocity = new Vector3(250, 0);
             }
             else if ((lCharaCtrl2D.isDashing && !isDashing) && (lCharaCtrl2D.team != team))
             {
@@ -118,33 +144,15 @@ public class CharacterController2D : MonoBehaviour {
             }
 
         }
-
-        if (other.tag == "Bonus")
-        {
-            if (other.tag == "Speed")
-            {
-                currentSpeed *= 2;
-            }
-
-            if (other.tag == "Shield")
-            {
-                shielded = true;
-            }
-
-            if (other.tag == "Dash")
-            {
-                currentDashImpulse *= 2;
-            }
-        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (canTake && collision.tag == "Collectible" && !collision.GetComponent<Ball>().firstValidation && !collision.GetComponent<Ball>().taken)
         {
-            Debug.Log(name + collision.GetComponent<Ball>().type);
             if (type == collision.GetComponent<Ball>().type)
             {
+                pickupcollectible();
                 if (ballReference == null)
                 {
                     grabBall(collision.gameObject);
@@ -169,9 +177,13 @@ public class CharacterController2D : MonoBehaviour {
                     DestroyObject(collision.gameObject);
                     stacks++;
                 }
+
+                transmission();
             }
         }
+
        
+
     }
 
     public void resetList()
@@ -190,6 +202,7 @@ public class CharacterController2D : MonoBehaviour {
         if(shielded)
         {
             shielded = false;
+            DestroyObject(shield);
             return;
         }
         if (isImortal) return;
@@ -239,6 +252,7 @@ public class CharacterController2D : MonoBehaviour {
 
     public void respawed()
     {
+        stacks = 0;
         StartCoroutine(respawn());
     }
 
@@ -248,38 +262,43 @@ public class CharacterController2D : MonoBehaviour {
         GameObject lPart = Instantiate(Respawn, transform.position, Quaternion.identity);
         lPart.GetComponent<ParticleSystem>().Play();
         yield return new WaitForSeconds(0.8f);
+        currentSpeed = speed;
+        currentDelay = dashDelay;
+        shielded = false;
+        DestroyObject(shield);
         isDead = false;
         canTake = true;
         _sprtiRenderer.enabled = !_sprtiRenderer.enabled;
     }
 
-    /*IEnumerator pickup()
+    void pickup()
     {
         GameObject lPart = Instantiate(Pickup_Bonus, transform.position, Quaternion.identity);
         lPart.GetComponent<ParticleSystem>().Play();
-        _sprtiRenderer.enabled = !_sprtiRenderer.enabled;
-        yield return new WaitForSeconds(0.8f);
     }
 
-    IEnumerator transmission()
+    void pickupcollectible()
+    {
+        GameObject lPart = Instantiate(Pickup_Collectible, transform.position, Quaternion.identity);
+        lPart.GetComponent<ParticleSystem>().Play();
+    }
+
+    void transmission()
     {
         GameObject lPart = Instantiate(Transmission, transform.position, Quaternion.identity);
         lPart.GetComponent<ParticleSystem>().Play();
-        _sprtiRenderer.enabled = !_sprtiRenderer.enabled;
-        yield return new WaitForSeconds(0.8f);
+    }
+    void collisionSparks()
+    {
+        GameObject lPart = Instantiate(Player_Collision, transform.position, Quaternion.identity);
+        lPart.GetComponentInChildren<ParticleSystem>().Play();
     }
 
-    IEnumerator shieldAnim()
+    void shieldAnim()
     {
-        if (shielded)
-        {
-            GameObject lPart = Instantiate(Bonus_Bouclieru, transform.position, Quaternion.identity);
-            lPart.GetComponent<ParticleSystem>().Play();
-            _sprtiRenderer.enabled = !_sprtiRenderer.enabled;
-        }
-
-        yield return new WaitForSeconds(0.8f);
-    }*/
+        GameObject lPart = Instantiate(Bonus_Bouclieru, transform);
+        shield = lPart;
+    }
 
 
 }

@@ -12,11 +12,11 @@ public class Goal : MonoBehaviour {
         _anim = GetComponent<Animator>();
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player" && team == collision.GetComponent<CharacterController2D>().team)
         {
-            Debug.Log("Melchior is a SuperGayFags");
+
             if (collision.GetComponent<CharacterController2D>().stacks == 3)
             {
                 collision.GetComponent<CharacterController2D>().resetList();
@@ -26,5 +26,10 @@ public class Goal : MonoBehaviour {
                 FindObjectOfType<UIManager>().spawnLD();
             }
         }
+    }
+
+    public void finalSparks()
+    {
+        _anim.SetTrigger("Goal");
     }
 }

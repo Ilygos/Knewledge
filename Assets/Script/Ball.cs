@@ -19,7 +19,7 @@ public class Ball : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		
-        Debug.Log(name + type);
+
     }
 
     // Update is called once per frame
