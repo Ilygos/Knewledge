@@ -6,9 +6,12 @@ public class DamageZone : MonoBehaviour {
 
     public float timeBeforeIntactivity = 1.0f;
 
-	// Use this for initialization
-	void OnEnable () {
+    public AudioSource _adSrc;
+
+    // Use this for initialization
+    void OnEnable () {
         StartCoroutine(timeBeforeInactive());
+        _adSrc.Play();
 	}
 	
     IEnumerator timeBeforeInactive()

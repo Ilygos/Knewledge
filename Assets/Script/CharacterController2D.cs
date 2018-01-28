@@ -16,6 +16,11 @@ public class CharacterController2D : MonoBehaviour {
 
     public Transform spawn;
 
+
+    public AudioClip[] deaths;
+    public AudioClip aspirateur;
+    public AudioClip clap;
+
     public Transform[] spawnPositions;
 	public GameObject Explosion;
 	public GameObject Pickup_Collectible;
@@ -36,7 +41,8 @@ public class CharacterController2D : MonoBehaviour {
     [SerializeField]
     GameObject ballReference;
 
-
+    public AudioSource poweUp;
+    AudioSource _adSrc;
     GameObject shield;
 
     [SerializeField]
@@ -45,6 +51,8 @@ public class CharacterController2D : MonoBehaviour {
     float friction = 0.8f;
     [SerializeField]
     float dashValue = 50;
+
+
 
     float timeOfDeath;
     [SerializeField]
@@ -67,6 +75,7 @@ public class CharacterController2D : MonoBehaviour {
         _sprtiRenderer = GetComponent<SpriteRenderer>();
         spawn = transform;
         timeBefore = Time.fixedTime;
+        _adSrc = GetComponent<AudioSource>();
     }
 
 
@@ -111,6 +120,7 @@ public class CharacterController2D : MonoBehaviour {
         if (other.tag == "Bonus")
         {
             pickup();
+            poweUp.Play();
             if (other.GetComponent<Collectible>().type == "Speed")
             {
                 currentSpeed *= 2;
@@ -126,7 +136,8 @@ public class CharacterController2D : MonoBehaviour {
             {
                 currentDelay /= 2;
             }
-            GameObject.DestroyObject(other.gameObject);
+            DestroyObject(other.gameObject);
+
         }
 
         if (other.tag == "DashZone")
@@ -152,6 +163,8 @@ public class CharacterController2D : MonoBehaviour {
         {
             if (type == collision.GetComponent<Ball>().type)
             {
+                _adSrc.clip = clap;
+                _adSrc.Play();
                 pickupcollectible();
                 if (ballReference == null)
                 {
@@ -164,6 +177,8 @@ public class CharacterController2D : MonoBehaviour {
         {
             if (type != collision.GetComponent<Ball>().type && stacks < 3)
             {
+                _adSrc.clip = aspirateur;
+                _adSrc.Play();
                 CharacterController2D[] lCharactersArray = FindObjectsOfType<CharacterController2D>();
                 foreach (CharacterController2D character in lCharactersArray)
                 {
@@ -212,6 +227,8 @@ public class CharacterController2D : MonoBehaviour {
         if (ballReference != null) drop(ballReference);
         canTake = false;
         if (stacks > 0)stacks--;
+        _adSrc.clip = deaths[Random.Range(0, deaths.Length - 1)];
+        _adSrc.Play();
         StartCoroutine(explosion());
     }
 

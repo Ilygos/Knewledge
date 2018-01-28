@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour {
 
@@ -16,11 +17,15 @@ public class UIManager : MonoBehaviour {
     private int scoreBlueTeamInt;
     private int scoreRedTeamInt;
 
+    public AudioSource winJingle;
+
     public int waitingTime;
     private int randomIndex;
     public int COUNTER_FRAME = 60;
 
     public GameObject collectiblePrefabs;
+
+    bool hasWinned = false;
 
     public void setScore(int team, int pointToAdd)
     {
@@ -72,14 +77,29 @@ public class UIManager : MonoBehaviour {
         scoreBlueTeam.text = scoreBlueTeamInt.ToString();
         scoreRedTeam.text = scoreRedTeamInt.ToString();
         spawnCollectible();
-        if (scoreBlueTeamInt >= 5 || scoreRedTeamInt >= 5)
+        if (!hasWinned && (scoreBlueTeamInt >= 5 || scoreRedTeamInt >= 5))
+        {
+            hasWinned = true;
             win();
+        }
+    }
+
+    public void loadMainMenu()
+    {
+        SceneManager.LoadScene("TitleCard");
+    }
+
+    public void reload()
+    {
+        SceneManager.LoadScene("Test LD");
     }
 
     private void win()
     {
         Time.timeScale = 0;
+        Camera.main.GetComponent<AudioSource>().Pause();
         winScreen.SetActive(true);
+        winJingle.Play();
     }
 
     void spawnCollectible()

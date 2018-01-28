@@ -5,6 +5,7 @@ using UnityEngine;
 public class Goal : MonoBehaviour {
 
     public int team;
+    public AudioSource adSrc;
 
     private Animator _anim;
 	// Use this for initialization
@@ -23,9 +24,16 @@ public class Goal : MonoBehaviour {
                 FindObjectOfType<UIManager>().setScore(team, 1);
                 GetComponentInChildren<ParticleSystem>().Play();
                 _anim.SetTrigger("Goal");
-                FindObjectOfType<UIManager>().spawnLD();
+                adSrc.Play();
+                StartCoroutine(delayForLD());
             }
         }
+    }
+
+    IEnumerator delayForLD()
+    {
+        yield return new WaitForSeconds(0.6f);
+        FindObjectOfType<UIManager>().spawnLD();
     }
 
     public void finalSparks()

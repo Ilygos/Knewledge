@@ -5,10 +5,8 @@ using UnityEngine;
 public class Collectible : MonoBehaviour {
 
     public string type;
-
     // Use this for initialization
     void Start () {
-        
 	}
 	
     public void changeType(string newType)
@@ -16,8 +14,9 @@ public class Collectible : MonoBehaviour {
         type = newType;
     }
 
-	// Update is called once per frame
-	void Upddate () {
+
+    // Update is called once per frame
+    void Upddate () {
 
     }
 
