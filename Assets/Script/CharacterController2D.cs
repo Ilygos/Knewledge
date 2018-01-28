@@ -204,8 +204,12 @@ public class CharacterController2D : MonoBehaviour {
 
     public void transfertBall()
     {
+        if (ballReference.GetComponent<Ball>().type == 1)
+            FindObjectOfType<UIManager>().spawnBall(0);
+        else
+            FindObjectOfType<UIManager>().spawnBall(1);
+
         ballReference = null;
-        FindObjectOfType<UIManager>().spawnBall();
     }
 
     private void grabBall(GameObject ball)

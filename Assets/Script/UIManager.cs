@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,8 +14,8 @@ public class UIManager : MonoBehaviour {
     private int scoreBlueTeamInt;
     private int scoreRedTeamInt;
 
-    public int randomIndex;
     public int waitingTime;
+    private int randomIndex;
     public int COUNTER_FRAME = 60;
 
     public GameObject collectiblePrefabs;
@@ -29,18 +30,19 @@ public class UIManager : MonoBehaviour {
 
     }
 
-    public void spawnBall()
+    public void spawnBall(int leType)
     {
-        int rng = Random.Range(0, spawnPoint.Length);
-        int randomIndex = Random.Range(0, 1);
-        GameObject lCollectibleType = Instantiate(balls[randomIndex], spawnPoint[rng].position, Quaternion.identity);
+        int rng = UnityEngine.Random.Range(0, spawnPoint.Length);
+        GameObject lCollectibleType = Instantiate(balls[leType], spawnPoint[rng].position, Quaternion.identity);
     }
 
 	// Use this for initialization
 	void Start () {
         scoreBlueTeamInt = 0;
         scoreRedTeamInt = 0;
-        spawnBall();
+        spawnBall(0);
+        spawnBall(1);
+        Time.timeScale = 1;
     }
 	
 	// Update is called once per frame
@@ -48,7 +50,14 @@ public class UIManager : MonoBehaviour {
         scoreBlueTeam.text = scoreBlueTeamInt.ToString();
         scoreRedTeam.text = scoreRedTeamInt.ToString();
         //spawnCollectible();
+        if (scoreBlueTeamInt >= 5 || scoreRedTeamInt >= 5)
+            win();
+    }
 
+    private void win()
+    {
+        Time.timeScale = 0;
+        winScreen.SetActive(true);
     }
 
     void spawnCollectible()
@@ -60,8 +69,8 @@ public class UIManager : MonoBehaviour {
 
         waitingTime = 0;
 
-        randomIndex = Random.Range(1, 3);
-        int rng = Random.Range(0, spawnPoint.Length);
+        randomIndex = UnityEngine.Random.Range(1, 3);
+        int rng = UnityEngine.Random.Range(0, spawnPoint.Length);
         lCollectibleType = Instantiate(collectiblePrefabs, spawnPoint[rng].position, Quaternion.identity);
         if (randomIndex == 1)
         {
