@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.46274513, g: 0.48235297, b: 0.7725491, a: 1}
+  m_Color: {r: 0.10196079, g: 0.67058825, b: 0.89019614, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -366,6 +366,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  currentLDID: -1
   spawnPoint:
   - {fileID: 0}
   - {fileID: 0}
@@ -422,7 +423,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   waitingTime: 0
-  COUNTER_FRAME: 60
+  COUNTER_FRAME: 600
   collectiblePrefabs: {fileID: 1508729218134990, guid: 33a08ee98e40beb45a59bde7c3ebd53c,
     type: 2}
 --- !u!114 &114545158861260514
@@ -626,7 +627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7725491, g: 0.46274513, b: 0.47058827, a: 1}
+  m_Color: {r: 0.95294124, g: 0.5764706, b: 0.1254902, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
