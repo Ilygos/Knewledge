@@ -16,39 +16,40 @@ public class Loading : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        StartCoroutine(startGame());
+		StartCoroutine(startGame());
+		StartCoroutine(tuto1display());
 	}
 
-    IEnumerator tuto1display()
+	IEnumerator tuto1display()
     {
         tutoPanno.sprite = tuto1;
-        yield return new WaitForSeconds(0.66f);
+        yield return new WaitForSeconds(1);
         StartCoroutine(tuto2display());
     }
 
     IEnumerator tuto2display()
     {
-        tutoPanno.sprite = tuto1;
-        yield return new WaitForSeconds(0.66f);
+        tutoPanno.sprite = tuto2;
+        yield return new WaitForSeconds(1);
         StartCoroutine(tuto3display());
     }
 
     IEnumerator tuto3display()
     {
-        tutoPanno.sprite = tuto1;
-        yield return new WaitForSeconds(0.66f);
+        tutoPanno.sprite = tuto3;
+        yield return new WaitForSeconds(1);
         StartCoroutine(tuto4display());
     }
 
     IEnumerator tuto4display()
     {
-        tutoPanno.sprite = tuto1;
-        yield return new WaitForSeconds(0.66f);
+        tutoPanno.sprite = tuto4;
+        yield return new WaitForSeconds(1);
     }
 
     IEnumerator startGame()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(4.0f);
         SceneManager.LoadScene("Test LD");
     }
 

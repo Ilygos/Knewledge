@@ -371,11 +371,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4136599746414438, guid: 5c5cfa43b5b5cee4b96d24aef2831df1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.793
+      value: 6.99
       objectReference: {fileID: 0}
     - target: {fileID: 4136599746414438, guid: 5c5cfa43b5b5cee4b96d24aef2831df1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.9
+      value: -3.87
       objectReference: {fileID: 0}
     - target: {fileID: 4136599746414438, guid: 5c5cfa43b5b5cee4b96d24aef2831df1, type: 2}
       propertyPath: m_LocalPosition.z
@@ -444,8 +444,8 @@ MonoBehaviour:
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
+  m_HorizontalAxis: Horizontal0
+  m_VerticalAxis: Vertical0
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutoPanno: {fileID: 96235903}
-  tuto1: {fileID: 0}
-  tuto4: {fileID: 0}
-  tuto3: {fileID: 0}
-  tuto2: {fileID: 0}
+  tuto1: {fileID: 21300000, guid: 9a96679a790a48345b8489bcd2884e3e, type: 3}
+  tuto4: {fileID: 21300000, guid: 07cd1169487333044a6b2f606bf6a21e, type: 3}
+  tuto3: {fileID: 21300000, guid: 3628d09b282cf80499763e342c19fe8b, type: 3}
+  tuto2: {fileID: 21300000, guid: 4ba8c63a3c0803747b0ebacb8cc88e2e, type: 3}
