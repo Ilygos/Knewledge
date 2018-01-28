@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 199181833752050658}
   m_Layer: 10
   m_Name: Effet final (2)
-  m_TagString: Untagged
+  m_TagString: Tro For Orange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 199682133194934670}
   m_Layer: 10
   m_Name: Effet final (1)
-  m_TagString: Untagged
+  m_TagString: Tro For Orange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
+  adSrc: {fileID: 0}
 --- !u!198 &198039631735812672
 ParticleSystem:
   m_ObjectHideFlags: 1

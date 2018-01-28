@@ -516,7 +516,7 @@ MonoBehaviour:
   - {fileID: 0}
   winJingle: {fileID: 82612805199720598}
   waitingTime: 0
-  COUNTER_FRAME: 600
+  COUNTER_FRAME: 60
   collectiblePrefabs: {fileID: 1508729218134990, guid: 33a08ee98e40beb45a59bde7c3ebd53c,
     type: 2}
 --- !u!114 &114545158861260514

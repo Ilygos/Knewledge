@@ -7,6 +7,8 @@ TagManager:
   - Collectible
   - DashZone
   - Bonus
+  - Tro For Bleu
+  - Tro For Orange
   layers:
   - Default
   - TransparentFX

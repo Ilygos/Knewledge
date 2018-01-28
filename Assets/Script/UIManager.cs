@@ -16,9 +16,7 @@ public class UIManager : MonoBehaviour {
     public Transform[] spawnPoint;
     private int scoreBlueTeamInt;
     private int scoreRedTeamInt;
-
     public AudioSource winJingle;
-
     public int waitingTime;
     private int randomIndex;
     public int COUNTER_FRAME = 60;
@@ -121,10 +119,6 @@ public class UIManager : MonoBehaviour {
         else if (randomIndex == 2)
         {
             lCollectibleType.GetComponent<Collectible>().changeType("Speed");
-        }
-        else if (randomIndex == 3)
-        {
-            lCollectibleType.GetComponent<Collectible>().changeType("Dash");
         }
     }
 }

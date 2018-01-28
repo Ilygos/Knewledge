@@ -30,6 +30,7 @@ public class CharacterController2D : MonoBehaviour {
 	public GameObject Player_Collision;
 	public GameObject Bonus_Bouclieru;
 
+    public GameObject cdDash;
 
     public Sprite normalSprite;
     public Sprite stack1Sprite;
@@ -59,6 +60,7 @@ public class CharacterController2D : MonoBehaviour {
     float timeBeingDead = 5;
 
     float timeBefore;
+    private bool canDash = true;
     float currentSpeed;
     float currentDelay;
     Rigidbody2D _rgbg2D;
@@ -86,9 +88,14 @@ public class CharacterController2D : MonoBehaviour {
             float inputVertical = Input.GetAxis("Vertical" + playerId);
             Vector2 lVelocityDelta = new Vector2(currentSpeed * inputHorizontal, currentSpeed * inputVertical);
             transform.rotation = inputHorizontal != 0 || inputVertical != 0 ? Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(inputVertical, inputHorizontal)) : transform.rotation;
-
-            if (Input.GetButtonDown("Attack" + playerId) && Time.fixedTime > timeBefore + dashDelay)
+            if(!canDash && Time.fixedTime > timeBefore + currentDelay)
             {
+                cdDash.SetActive(true);
+                canDash = true;
+            }
+            if (Input.GetButtonDown("Attack" + playerId) && canDash)
+            {
+                canDash = false;
                 timeBefore = Time.fixedTime;
                 lVelocityDelta.x += dashValue * Input.GetAxisRaw("Horizontal" + playerId);
                 lVelocityDelta.y += dashValue * Input.GetAxisRaw("Vertical" + playerId);
@@ -123,19 +130,15 @@ public class CharacterController2D : MonoBehaviour {
             poweUp.Play();
             if (other.GetComponent<Collectible>().type == "Speed")
             {
-                currentSpeed *= 2;
+                currentSpeed *= 1.25f;
             }
 
-            if (other.GetComponent<Collectible>().type == "Shield")
+            if (other.GetComponent<Collectible>().type == "Shield" && !shielded)
             {
                 shielded = true;
                 shieldAnim();
             }
 
-            if (other.GetComponent<Collectible>().type == "Dash")
-            {
-                currentDelay /= 2;
-            }
             DestroyObject(other.gameObject);
 
         }
