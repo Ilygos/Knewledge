@@ -23,6 +23,7 @@ public class Goal : MonoBehaviour {
                 FindObjectOfType<UIManager>().setScore(team, 1);
                 GetComponentInChildren<ParticleSystem>().Play();
                 _anim.SetTrigger("Goal");
+                FindObjectOfType<UIManager>().spawnLD();
             }
         }
     }

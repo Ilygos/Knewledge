@@ -355,6 +355,17 @@ MonoBehaviour:
   balls:
   - {fileID: 1125107905000512, guid: e4746383172e4004eba81cc6487aa190, type: 2}
   - {fileID: 1039414588808596, guid: a156c18fcdb10f34ead8f4c31b1735f8, type: 2}
+  LDs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   spawnPoint:
   - {fileID: 0}
   - {fileID: 0}
@@ -410,7 +421,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  randomIndex: 0
   waitingTime: 0
   COUNTER_FRAME: 60
   collectiblePrefabs: {fileID: 1508729218134990, guid: 33a08ee98e40beb45a59bde7c3ebd53c,

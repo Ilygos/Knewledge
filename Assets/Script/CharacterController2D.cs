@@ -234,6 +234,11 @@ public class CharacterController2D : MonoBehaviour {
         lPart.GetComponent<ParticleSystem>().Play();
         _sprtiRenderer.enabled = !_sprtiRenderer.enabled;
         yield return new WaitForSeconds(0.8f);
+        respawed();
+    }
+
+    public void respawed()
+    {
         StartCoroutine(respawn());
     }
 

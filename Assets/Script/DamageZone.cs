@@ -14,8 +14,8 @@ public class DamageZone : MonoBehaviour {
     IEnumerator timeBeforeInactive()
     {
         yield return new WaitForSeconds(timeBeforeIntactivity);
-        gameObject.SetActive(false);
         GetComponentInParent<CharacterController2D>().isDashing = false;
+        gameObject.SetActive(false);
     }
 
 }

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4013028391718518}
   - component: {fileID: 212842973190355018}
   - component: {fileID: 61997127879879316}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4877815887373760}
   - component: {fileID: 198362028517145204}
   - component: {fileID: 199081080579691322}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Effet Goal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4178580026786602}
   - component: {fileID: 212233726549409270}
   - component: {fileID: 61411179865064642}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: wall (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 95444095621047872}
   - component: {fileID: 114329593782360938}
   - component: {fileID: 61933435173960244}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: But_Bleu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4396466648271486}
   - component: {fileID: 212228550459208284}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LD_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 4073893538417586}
   - component: {fileID: 212097367275033614}
   - component: {fileID: 61107806053224944}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 4952256067347318}
   - component: {fileID: 198916174023839282}
   - component: {fileID: 199793637121822982}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Effet Goal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 4173174619722802}
   - component: {fileID: 212724688039563558}
   - component: {fileID: 61811235821410718}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 95942065579747804}
   - component: {fileID: 114053032144238464}
   - component: {fileID: 61217533964272738}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: But_Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4082736699653680}
   - component: {fileID: 212122509146403030}
   - component: {fileID: 61251236100067352}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 4662573648719578}
   - component: {fileID: 212883299720459326}
   - component: {fileID: 61860061597248908}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: wall (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 4002821547132312}
   - component: {fileID: 212051673473664336}
   - component: {fileID: 61926793521232552}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: wall (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ Transform:
   m_GameObject: {fileID: 1551897279235388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2443964, y: 1.2443964, z: 1.2443964}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4073893538417586}
   - {fileID: 4082736699653680}
@@ -426,7 +426,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.42, y: 5.72}
+    oldSize: {x: 16.09, y: 10.44}
     newSize: {x: 11.42, y: 5.72}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -576,7 +576,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.42, y: 5.72}
+    oldSize: {x: 16.09, y: 10.44}
     newSize: {x: 11.42, y: 5.72}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

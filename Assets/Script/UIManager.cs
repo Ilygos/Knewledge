@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour {
     public Text scoreBlueTeam;
     public GameObject winScreen;
     public GameObject[] balls;
+    public GameObject[] LDs;
+    public int currentLDID = -1;
     public Transform[] spawnPoint;
     private int scoreBlueTeamInt;
     private int scoreRedTeamInt;
@@ -36,13 +38,33 @@ public class UIManager : MonoBehaviour {
         GameObject lCollectibleType = Instantiate(balls[leType], spawnPoint[rng].position, Quaternion.identity);
     }
 
-	// Use this for initialization
-	void Start () {
+    public void spawnLD()
+    {
+        if (currentLDID != -1) LDs[currentLDID].SetActive(false);
+        int rng;
+        do
+        {
+            rng = UnityEngine.Random.Range(0, LDs.Length);
+        } while (rng == currentLDID);
+        currentLDID = rng;
+        LDs[currentLDID].SetActive(true);
+        CharacterController2D[] players = FindObjectsOfType<CharacterController2D>();
+        foreach(CharacterController2D player in players)
+        {
+            player.GetComponent<SpriteRenderer>().enabled = !player.GetComponent<SpriteRenderer>().enabled;
+            player.respawed();
+        }
+    }
+
+
+    // Use this for initialization
+    void Start () {
         scoreBlueTeamInt = 0;
         scoreRedTeamInt = 0;
         spawnBall(0);
         spawnBall(1);
         Time.timeScale = 1;
+        spawnLD();
     }
 	
 	// Update is called once per frame
