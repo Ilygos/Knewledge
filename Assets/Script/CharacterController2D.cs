@@ -248,4 +248,33 @@ public class CharacterController2D : MonoBehaviour {
         _sprtiRenderer.enabled = !_sprtiRenderer.enabled;
     }
 
+    /*IEnumerator pickup()
+    {
+        GameObject lPart = Instantiate(Pickup_Bonus, transform.position, Quaternion.identity);
+        lPart.GetComponent<ParticleSystem>().Play();
+        _sprtiRenderer.enabled = !_sprtiRenderer.enabled;
+        yield return new WaitForSeconds(0.8f);
+    }
+
+    IEnumerator transmission()
+    {
+        GameObject lPart = Instantiate(Transmission, transform.position, Quaternion.identity);
+        lPart.GetComponent<ParticleSystem>().Play();
+        _sprtiRenderer.enabled = !_sprtiRenderer.enabled;
+        yield return new WaitForSeconds(0.8f);
+    }
+
+    IEnumerator shieldAnim()
+    {
+        if (shielded)
+        {
+            GameObject lPart = Instantiate(Bonus_Bouclieru, transform.position, Quaternion.identity);
+            lPart.GetComponent<ParticleSystem>().Play();
+            _sprtiRenderer.enabled = !_sprtiRenderer.enabled;
+        }
+
+        yield return new WaitForSeconds(0.8f);
+    }*/
+
+
 }
